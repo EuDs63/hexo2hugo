@@ -25,3 +25,4 @@
 ## 参考
 1. [Front matter | Hugo](https://gohugo.io/content-management/front-matter/)
 2. [ayuayue/hexo2hugo: hexo's front mater to hugo](https://github.com/ayuayue/hexo2hugo)
+3. [Hugo中的Front Matter与Archetypes · 零壹軒·笔记](https://note.qidong.name/2017/06/21/hugo_front_matter/)
