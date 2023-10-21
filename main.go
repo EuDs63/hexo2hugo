@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
-	filePathNames := file.GetAllMDFileName()
-	file.ReadAllMDFile(filePathNames)
+	dir := "./source" //当前目录
+	file.GetAllMDFileNames(dir)
+	// file.ReadAllMDFile(filePathNames)
 }
