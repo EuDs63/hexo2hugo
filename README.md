@@ -1,28 +1,27 @@
+## Hexo2Hugo
 
-
-#### 说明
+## 说明
 
 使用 `golang` 原生编写,将 `hexo` 文章的 `front matter` 标签改为 `hugo` 可以解析的格式.
-只过滤了常用的 `date tags categories` 标签, 如有其他定义的标签,可以自己在源码添加
 
-#### 使用方法
-下载`release` 或者`clone` 源码进行编译,在命令行运行即可
+过滤了常用的 `date tags categories excerpt` 标签, 如有其他定义的标签,可以自己在源码添加
 
-#### 注意事项
-没有成命令行接受参数的形式,为了防止文章修改失败而导致文件内容改变或丢失,请将要修改的`markdown` 文件复制到该应用的目录之下进行操作
+## 使用方法
+`go run main.go`
 
-#### 支持的格式
-目前只支持单个标签的更改并标签后要有空格,
-支持的格式:
-
+## 支持的格式
+目前支持两种格式
+- 单行标签：如：
+  ```
     tags: hexo,blog
-    
-### 不支持的格式:
-
+  ```  
+- 多行标签
+```
     tags: 
         - hexo
         - blog
+```
 
-----
-优化
-1. 写入到独立文件中,不更改元数据内容
+## 参考
+1. [Front matter | Hugo](https://gohugo.io/content-management/front-matter/)
+2. [ayuayue/hexo2hugo: hexo's front mater to hugo](https://github.com/ayuayue/hexo2hugo)

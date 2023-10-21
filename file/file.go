@@ -66,8 +66,8 @@ func ReadAllMDFiles(filePathNames []string) {
         result := ""
         scanner := bufio.NewScanner(file)
 
-        inMultiLineTag := false
-        multiLineTag := ""
+        // inMultiLineTag := false
+        // multiLineTag := ""
 
         for scanner.Scan() {
             line := scanner.Text()
@@ -76,21 +76,25 @@ func ReadAllMDFiles(filePathNames []string) {
                 line = HandleDate(line)
             }
 			// 如果行中包含 “tags:” 标签,则开始检测是否有多行标签
-            if strings.Contains(line, "tags:") {
-                inMultiLineTag = true
-                multiLineTag = line
-                continue
-            }
-            if inMultiLineTag {
-                if strings.HasPrefix(line, "  - ") {
-                    multiLineTag += "\n" + line
-					continue
-                } else {
-                    inMultiLineTag = false
-					//fmt.Println(multiLineTag)
-                    result = result + HandleTags(multiLineTag) + "\n"
-                }
-            }
+            // if strings.Contains(line, "tags:") {
+            //     inMultiLineTag = true
+            //     multiLineTag = line
+            //     continue
+            // }
+            // if inMultiLineTag {
+            //     if strings.HasPrefix(line, "  - ") {
+            //         multiLineTag += "\n" + line
+			// 		continue
+            //     } else {
+            //         inMultiLineTag = false
+			// 		//fmt.Println(multiLineTag)
+            //         result = result + HandleTags(multiLineTag) + "\n"
+            //     }
+            // }
+			// 如果行中包含“excerpt:”标签,则替换为“summary:”
+			if strings.Contains(line, "excerpt:") {
+				line = strings.Replace(line, "excerpt:", "summary:", -1)
+			}
             result = result + line + "\n"
         }
         fmt.Printf("正在更改第 %d 个文件 %s\n", k+1, v)
